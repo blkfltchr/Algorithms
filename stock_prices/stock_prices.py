@@ -3,8 +3,15 @@
 import argparse
 
 def find_max_profit(prices):
-  pass 
-
+  
+    max_profit = prices[1] - prices[0]
+    time_to_buy = prices[0]
+    
+    for i in range(1, len(prices)):
+        max_profit = max(max_profit, prices[i] - time_to_buy)
+        time_to_buy = min(time_to_buy, prices[i])
+        
+    return max_profit
 
 if __name__ == '__main__':
   # You can test your implementation by running 
